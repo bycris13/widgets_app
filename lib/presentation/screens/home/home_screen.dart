@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
+import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -7,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Flutter + material 3')),
+      appBar: AppBar(title: const Text('Flutter + Material 3')),
       body: _HomeView(),
     );
   }
@@ -22,14 +23,14 @@ class _HomeView extends StatelessWidget {
       itemCount: appMenuItems.length,
       itemBuilder: (context, index) {
         final menuItem = appMenuItems[index];
-        return _CustomeListTile(menuItem: menuItem);
+        return _CustomeListTitle(menuItem: menuItem);
       },
     );
   }
 }
 
-class _CustomeListTile extends StatelessWidget {
-  const _CustomeListTile({required this.menuItem});
+class _CustomeListTitle extends StatelessWidget {
+  const _CustomeListTitle({required this.menuItem});
 
   final MenuItems menuItem;
 
@@ -38,10 +39,18 @@ class _CustomeListTile extends StatelessWidget {
     final colors = Theme.of(context).colorScheme;
     return ListTile(
       leading: Icon(menuItem.icon, color: colors.primary),
-      trailing: Icon(Icons.arrow_forward_ios_outlined, color: colors.primary),
+      trailing: const Icon(Icons.arrow_forward_ios_outlined),
       title: Text(menuItem.titel),
       subtitle: Text(menuItem.subTitel),
-      onTap: () {},
+      onTap: () {
+        // Navigator
+
+        /*  Navigator.of(
+          context,
+        ).push(MaterialPageRoute(builder: (context) => const CardsScreen())); */
+
+        Navigator.pushNamed(context, menuItem.link);
+      },
     );
   }
 }
