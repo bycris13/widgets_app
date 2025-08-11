@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
-import 'package:widgets_app/presentation/screens/cards/cards_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -44,12 +44,12 @@ class _CustomeListTitle extends StatelessWidget {
       subtitle: Text(menuItem.subTitel),
       onTap: () {
         // Navigator
-
         /*  Navigator.of(
           context,
         ).push(MaterialPageRoute(builder: (context) => const CardsScreen())); */
 
-        Navigator.pushNamed(context, menuItem.link);
+        // Navigator.pushNamed(context, menuItem.link);
+        context.push(menuItem.link);
       },
     );
   }
