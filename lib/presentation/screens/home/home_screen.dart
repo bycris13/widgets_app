@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
+import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const String name = 'home_Screen';
+
   const HomeScreen({super.key});
 
   @override
@@ -43,12 +46,16 @@ class _CustomeListTitle extends StatelessWidget {
       title: Text(menuItem.titel),
       subtitle: Text(menuItem.subTitel),
       onTap: () {
-        // Navigator
+        // Navigacion propia de flutter
         /*  Navigator.of(
           context,
         ).push(MaterialPageRoute(builder: (context) => const CardsScreen())); */
 
         // Navigator.pushNamed(context, menuItem.link);
+
+        // go_router:
+        // Navegacion por nombre:
+        //context.pushNamed(ButtonsScreen.name);
         context.push(menuItem.link);
       },
     );
