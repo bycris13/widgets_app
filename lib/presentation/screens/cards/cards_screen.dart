@@ -26,8 +26,9 @@ class CardsScreen extends StatelessWidget {
             ),
             ...card.map(
               (card) =>
-                  _CardType1(elvation: card['elevation'], label: card['label']),
+                  _CardType2(elvation: card['elevation'], label: card['label']),
             ),
+            const SizedBox(height: 30),
           ],
         ),
       ),
@@ -43,6 +44,7 @@ class _CardType1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: elvation,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
         child: Column(
@@ -55,6 +57,42 @@ class _CardType1 extends StatelessWidget {
               ),
             ),
             Align(alignment: Alignment.topLeft, child: Text(label)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CardType2 extends StatelessWidget {
+  final double elvation;
+  final String label;
+  const _CardType2({required this.elvation, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return Card(
+      elevation: elvation,
+      shape: RoundedRectangleBorder(
+        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        side: BorderSide(color: colors.outline),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert_outlined),
+              ),
+            ),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text('$label - Outline'),
+            ),
           ],
         ),
       ),
