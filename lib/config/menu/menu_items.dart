@@ -27,4 +27,10 @@ const appMenuItems = <MenuItems>[
     link: '/cards',
     icon: Icons.credit_card,
   ),
+  MenuItems(
+    titel: 'Animated',
+    subTitel: 'Animaciones en flutter',
+    link: '/animated',
+    icon: Icons.animation,
+  ),
 ];

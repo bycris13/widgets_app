@@ -19,5 +19,10 @@ final appRouter = GoRouter(
       name: CardsScreen.name,
       builder: (context, state) => CardsScreen(),
     ),
+    GoRoute(
+      path: '/animated',
+      name: AnimatedScreen.name,
+      builder: (context, state) => AnimatedScreen(),
+    ),
   ],
 );
