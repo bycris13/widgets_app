@@ -149,6 +149,7 @@ class _CardType4 extends StatelessWidget {
     return Card(
       color: colors.surfaceContainerHigh,
       elevation: elvation,
+      clipBehavior: Clip.hardEdge,
       child: Stack(
         children: [
           Image.network(
