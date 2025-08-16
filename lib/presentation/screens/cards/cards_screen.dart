@@ -28,6 +28,14 @@ class CardsScreen extends StatelessWidget {
               (card) =>
                   _CardType2(elvation: card['elevation'], label: card['label']),
             ),
+            ...card.map(
+              (card) =>
+                  _CardType3(elvation: card['elevation'], label: card['label']),
+            ),
+            ...card.map(
+              (card) =>
+                  _CardType4(elvation: card['elevation'], label: card['label']),
+            ),
             const SizedBox(height: 30),
           ],
         ),
@@ -95,6 +103,77 @@ class _CardType2 extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _CardType3 extends StatelessWidget {
+  final double elvation;
+  final String label;
+  const _CardType3({required this.elvation, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return Card(
+      color: colors.surfaceContainerHigh,
+      elevation: elvation,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(10, 5, 10, 10),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert_outlined),
+              ),
+            ),
+            Align(alignment: Alignment.topLeft, child: Text(label)),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _CardType4 extends StatelessWidget {
+  final double elvation;
+  final String label;
+  const _CardType4({required this.elvation, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return Card(
+      color: colors.surfaceContainerHigh,
+      elevation: elvation,
+      child: Stack(
+        children: [
+          Image.network(
+            'https://picsum.photos/id/${elvation.toInt()}/600/250',
+            height: 350,
+            fit: BoxFit.cover,
+          ),
+
+          Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                ),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert_outlined),
+              ),
+            ),
+          ),
+          Align(alignment: Alignment.topLeft, child: Text('$label - image')),
+        ],
       ),
     );
   }
