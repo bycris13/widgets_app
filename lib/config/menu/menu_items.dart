@@ -28,6 +28,12 @@ const appMenuItems = <MenuItems>[
     icon: Icons.credit_card,
   ),
   MenuItems(
+    titel: 'ProgressIndicators',
+    subTitel: 'Generales y controladores',
+    link: '/progress',
+    icon: Icons.refresh_outlined,
+  ),
+  MenuItems(
     titel: 'Animated',
     subTitel: 'Animaciones en flutter',
     link: '/animated',
