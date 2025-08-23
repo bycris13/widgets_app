@@ -34,6 +34,12 @@ const appMenuItems = <MenuItems>[
     icon: Icons.refresh_outlined,
   ),
   MenuItems(
+    titel: 'Snackbars y dialogos',
+    subTitel: 'Generales y controladores',
+    link: '/snackbars',
+    icon: Icons.info_outline,
+  ),
+  MenuItems(
     titel: 'Animated',
     subTitel: 'Animaciones en flutter',
     link: '/animated',
