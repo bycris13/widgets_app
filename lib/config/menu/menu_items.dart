@@ -40,9 +40,9 @@ const appMenuItems = <MenuItems>[
     icon: Icons.info_outline,
   ),
   MenuItems(
-    titel: 'Animated',
-    subTitel: 'Animaciones en flutter',
+    titel: 'Animated container',
+    subTitel: 'Stateful widget animado',
     link: '/animated',
-    icon: Icons.animation,
+    icon: Icons.check_box_outline_blank_rounded,
   ),
 ];
