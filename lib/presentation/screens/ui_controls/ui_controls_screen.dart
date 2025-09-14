@@ -29,7 +29,7 @@ class _UiControlsViewState extends StatefulWidget {
 enum Transportation { car, plane, boat, submarine }
 
 class _UiControlsViewStateState extends State<_UiControlsViewState> {
-  Transportation selectedTransportation = Transportation.car;
+  Transportation selectedTransportation = Transportation.plane;
   bool isDelveloper = true;
   bool wantsBreakfast = false;
   bool wantsLunch = false;
