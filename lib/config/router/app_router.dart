@@ -10,6 +10,11 @@ final appRouter = GoRouter(
       builder: (context, state) => HomeScreen(),
     ),
     GoRoute(
+      path: '/counter-river',
+      name: CounterScreen.name,
+      builder: (context, state) => CounterScreen(),
+    ),
+    GoRoute(
       path: '/buttons',
       name: ButtonsScreen.name,
       builder: (context, state) => ButtonsScreen(),
@@ -49,10 +54,11 @@ final appRouter = GoRouter(
       name: InifiniteScrollScreen.name,
       builder: (context, state) => InifiniteScrollScreen(),
     ),
+
     GoRoute(
-      path: '/counter-river',
-      name: CounterScreen.name,
-      builder: (context, state) => CounterScreen(),
+      path: '/theme_changer',
+      name: ThemeChangerScreen.name,
+      builder: (context, state) => ThemeChangerScreen(),
     ),
   ],
 );

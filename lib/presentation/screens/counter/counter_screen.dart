@@ -1,18 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:widgets_app/presentation/providers/counter_provider.dart';
+import 'package:widgets_app/presentation/providers/theme_provider.dart';
 
-class CounterScreen extends StatelessWidget {
+class CounterScreen extends ConsumerWidget {
   static const String name = 'couter_screen';
   const CounterScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final int clickCounter = ref.watch(counterProvider);
+    final bool isDarkmode = ref.watch(darkModeProvider);
     return Scaffold(
-      appBar: AppBar(title: const Text('Counter Screen')),
-      body: const Center(
-        child: Text('Valor: 10', style: TextStyle(fontSize: 25)),
+      appBar: AppBar(
+        title: const Text('Counter Screen'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              // darkModeProvider viene por defecto en "false" aqui negamos ese valor, Al usar "!state", negamos el valor actual del provider (true -> false, false -> true),
+              // lo que hace que el icono cambie cada vez que se presiona el botón.
+              ref.read(darkModeProvider.notifier).update((state) => !state);
+            },
+            icon: isDarkmode
+                ? const Icon(Icons.dark_mode_outlined)
+                : const Icon(Icons.light_mode_outlined),
+          ),
+        ],
+      ),
+      body: Center(
+        child: Text(
+          'Valor: $clickCounter',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          // ref.read(counterProvider.notifier).state++;
+          ref.read(counterProvider.notifier).update((state) => state + 1);
+        },
         child: const Icon(Icons.add),
       ),
     );
